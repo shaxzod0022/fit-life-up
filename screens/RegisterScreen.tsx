@@ -1,0 +1,137 @@
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RadialBackground } from 'components/RadialBacground';
+import { RootStackParamList } from 'navigation/AppNavigator';
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
+
+export default function RegisterScreen({ navigation }: { navigation: NavigationProp }) {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  return (
+    <SafeAreaView className="flex-1 bg-[#0f172A]">
+      <RadialBackground />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        className="flex-1">
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+          <View className="flex-1 px-6 py-12">
+            <View className="mb-8 flex-row items-center justify-between">
+              <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                className="h-10 w-10 items-center justify-center rounded-full bg-white/10">
+                <Feather name="chevron-left" size={24} color="#21C45D" />
+              </TouchableOpacity>
+              <View className="flex-row gap-x-1">
+                <View className="h-2 w-5 rounded-full bg-[#21C45D]" />
+                <View className="h-2 w-2 rounded-full bg-white/20" />
+                <View className="h-2 w-2 rounded-full bg-white/20" />
+                <View className="h-2 w-2 rounded-full bg-white/20" />
+                <View className="h-2 w-2 rounded-full bg-white/20" />
+              </View>
+            </View>
+
+            {/* Header */}
+            <View className="mb-10">
+              <Text className="mb-4 text-3xl font-bold text-white">Ro'yxatdan o'tish</Text>
+              <Text className="text-base leading-6 text-[#21C45D]">
+                Ma'lumotlaringizni kiriting va sog'lom hayot sari ilk qadamni tashlang
+              </Text>
+            </View>
+
+            <View className="gap-y-6">
+              {/* Name Input */}
+              <View>
+                <Text className="mb-3 text-[10px] font-bold uppercase tracking-[2px] text-[#21C45D]">
+                  Ismingizni kiriting
+                </Text>
+                <View className="h-16 flex-row items-center rounded-2xl border border-white/10 bg-white/5 px-4">
+                  <Feather name="user" size={20} color="#94A3B8" />
+                  <TextInput
+                    placeholder="Masalan: Azizbek"
+                    placeholderTextColor="#475569"
+                    className="ml-3 flex-1 text-base text-white"
+                    value={name}
+                    onChangeText={setName}
+                  />
+                </View>
+              </View>
+
+              {/* Phone Input */}
+              <View>
+                <Text className="mb-3 text-[10px] font-bold uppercase tracking-[2px] text-[#21C45D]">
+                  Telefon raqami
+                </Text>
+                <View className="h-16 justify-center rounded-2xl border border-white/10 bg-white/5 px-4">
+                  <TextInput
+                    placeholder="+998 (90) 123-45-67"
+                    placeholderTextColor="#475569"
+                    keyboardType="phone-pad"
+                    className="text-lg tracking-wider text-white"
+                    value={phone}
+                    onChangeText={setPhone}
+                  />
+                </View>
+                <Text className="ml-1 mt-2 text-[11px] text-slate-500">
+                  Sizga tasdiqlash kodi yuboriladi
+                </Text>
+              </View>
+            </View>
+
+            <View className="mt-8 flex-row items-center rounded-2xl border border-[#21C45D20] bg-[#48f8830d] p-4">
+              <View className="h-10 w-10 items-center justify-center rounded-xl bg-[#21C45D20]">
+                <Feather name="shield" size={20} color="#21C45D" />
+              </View>
+              <View className="ml-4 flex-1">
+                <Text className="text-sm font-bold text-[#21C45D]">Xavfsiz va Ishonchli</Text>
+                <Text className="mt-0.5 text-[11px] text-slate-400">
+                  FitLifeUp sizning shaxsiy ma'lumotlaringiz xavfsizligini kafolatlaydi.
+                </Text>
+              </View>
+            </View>
+
+            <View className="mt-5">
+              <Text className="mb-6 text-center text-sm leading-5 text-slate-500">
+                "Ro'yxatdan o'tish" tugmasini bosish orqali siz bizning{' '}
+                <Text
+                  onPress={() => navigation.navigate('Privacy' as any)}
+                  className="text-[#21C45D]">
+                  Foydalanish shartlari
+                </Text>{' '}
+                va{' '}
+                <Text
+                  onPress={() => navigation.navigate('Privacy' as any)}
+                  className="text-[#21C45D]">
+                  Maxfiylik siyosatiga
+                </Text>{' '}
+                rozilik bildirasiz.
+              </Text>
+
+              <TouchableOpacity
+                onPress={() => navigation.navigate('OTP')}
+                activeOpacity={0.8}
+                className="h-16 flex-row items-center justify-center rounded-2xl bg-[#21C45D] shadow-lg shadow-green-500/40">
+                <Text className="text-lg font-bold text-[#0f172A]">Ro'yxatdan o'tish</Text>
+                <View className="ml-2">
+                  <Feather name="arrow-right" size={20} color="#0f172A" />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
+  );
+}
