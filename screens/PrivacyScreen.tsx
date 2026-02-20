@@ -24,7 +24,7 @@ export default function PrivacyPolicyScreen({ navigation }: { navigation: Naviga
   return (
     <SafeAreaView className="flex-1 bg-[#0f172A]">      
       {/* Header */}
-      <View className="flex-row items-center px-6 py-12 border-b border-white/5">
+      <View className="flex-row items-center p-6 border-b border-white/5">
         <TouchableOpacity 
           onPress={() => navigation.goBack()}
           className="h-10 w-10 items-center justify-center rounded-full bg-white/10"
@@ -39,7 +39,7 @@ export default function PrivacyPolicyScreen({ navigation }: { navigation: Naviga
       <ScrollView 
         className="flex-1 px-6" 
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingTop: 24, paddingBottom: 40 }}
+        contentContainerStyle={{ paddingTop: 20, paddingBottom: 20 }}
       >
         {/* Intro */}
         <Text className="text-slate-400 text-sm leading-6 mb-8 italic">

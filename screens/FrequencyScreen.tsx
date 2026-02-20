@@ -49,7 +49,7 @@ export default function FrequencyScreen({ navigation }: { navigation: Navigation
   return (
     <SafeAreaView className="flex-1 bg-[#0f172A]">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-        <View className="flex-1 px-6 py-12">
+        <View className="flex-1 p-6">
           {/* Header */}
           <View className="mb-8 flex-row items-center justify-between">
             <TouchableOpacity

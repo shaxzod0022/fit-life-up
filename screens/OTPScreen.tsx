@@ -57,7 +57,7 @@ export default function OTPScreen({ navigation }: { navigation: NavigationProp }
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1">
-        <View className="flex-1 px-6 py-12">
+        <View className="flex-1 p-6">
           {/* Header Section */}
           <View className="mb-8 flex-row items-center justify-between">
             <TouchableOpacity

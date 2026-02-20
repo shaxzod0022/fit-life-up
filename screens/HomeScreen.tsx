@@ -5,12 +5,12 @@ import { Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-[#0f172A]">
-      <ScrollView className="flex-1 px-5 py-10" showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1 p-5" showsVerticalScrollIndicator={false}>
         {/* Header: User Info */}
-        <View className="mt-6 flex-row items-center justify-between">
-          <View>
+        <View className="flex-row items-center justify-between">
+          <View className="w-[60%]">
             <Text className="text-sm font-bold text-[#22C55E]">Xush kelibsiz!</Text>
-            <Text className="text-2xl font-bold text-white">Salom, Avazbek fsdkjf</Text>
+            <Text className="text-2xl font-bold text-white">Salom, Avazbek</Text>
           </View>
           <View className="flex-row items-center gap-x-3">
             <View className="flex-row items-center rounded-full border border-[#22C55E30] bg-[#22C55E15] px-3 py-1.5">
@@ -23,7 +23,6 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* Main Banner Card */}
         <View className="mt-8 overflow-hidden rounded-[32px] border border-white/10 bg-white/5 p-6">
           <View className="z-10 w-[60%]">
             <View className="mb-3 self-start rounded-md bg-[#22C55E] px-2 py-1">
@@ -34,18 +33,16 @@ export default function HomeScreen() {
             <Text className="mb-5 text-xs leading-5 text-slate-400">
               Umurtqa pog'onasini tiklash uchun reabilitatsiya kompleksi
             </Text>
-            <TouchableOpacity className="w-full flex-row items-center justify-center rounded-2xl bg-[#22C55E] py-3">
-              <Ionicons name="play" size={18} color="#0f172A" />
-              <Text className="ml-2 font-bold text-[#0f172A]">Boshlash</Text>
-            </TouchableOpacity>
           </View>
-          {/* Rasmni o'rniga rangli gradient yoki image qo'yishingiz mumkin */}
+          <TouchableOpacity className="w-full flex-row items-center justify-center rounded-2xl bg-[#22C55E] py-3">
+            <Ionicons name="play" size={18} color="#0f172A" />
+            <Text className="ml-2 font-bold text-[#0f172A]">Boshlash</Text>
+          </TouchableOpacity>
           <View className="absolute bottom-0 right-[-20] opacity-40">
             <MaterialCommunityIcons name="human-walking" size={200} color="#22C55E" />
           </View>
         </View>
 
-        {/* Stats Row: Calories & Recovery */}
         <View className="mt-6 flex-row gap-x-4">
           <View className="flex-1 rounded-[28px] border border-white/10 bg-white/5 p-5">
             <View className="mb-4 self-start rounded-lg bg-orange-500/20 p-2">

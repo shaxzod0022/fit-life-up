@@ -1,12 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import HomeScreen from 'screens/HomeScreen'; // Dashboard sahifasi
+import HomeScreen from 'screens/HomeScreen';
+import ExercisesScreen from 'screens/ExercisesScreen';
 import { View, Text } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-// Vaqtincha boshqa sahifalar uchun bo'sh komponentlar
 const Placeholder = ({ title }: { title: string }) => (
   <View className="flex-1 items-center justify-center bg-[#0f172A]">
     <Text className="text-white">{title}</Text>
@@ -21,7 +21,7 @@ export default function TabNavigator() {
         tabBarStyle: {
           backgroundColor: '#0f172A',
           borderTopWidth: 1,
-          borderColor: "yellow",
+          borderColor: "#22C55E",
           height: 70,
           paddingBottom: 10,
         },
@@ -42,7 +42,7 @@ export default function TabNavigator() {
         },
       })}>
       <Tab.Screen name="Asosiy" component={HomeScreen} />
-      <Tab.Screen name="Mashqlar" children={() => <Placeholder title="Mashqlar Sahifasi" />} />
+      <Tab.Screen name="Mashqlar" component={ExercisesScreen} />
       <Tab.Screen name="Statistika" children={() => <Placeholder title="Statistika Sahifasi" />} />
       <Tab.Screen name="Profil" children={() => <Placeholder title="Profil Sahifasi" />} />
     </Tab.Navigator>

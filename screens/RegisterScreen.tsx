@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RadialBackground } from 'components/RadialBacground';
 import { RootStackParamList } from 'navigation/AppNavigator';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
@@ -22,12 +21,11 @@ export default function RegisterScreen({ navigation }: { navigation: NavigationP
 
   return (
     <SafeAreaView className="flex-1 bg-[#0f172A]">
-      <RadialBackground />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1">
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-          <View className="flex-1 px-6 py-12">
+          <View className="flex-1 p-6">
             <View className="mb-8 flex-row items-center justify-between">
               <TouchableOpacity
                 onPress={() => navigation.goBack()}
@@ -105,15 +103,11 @@ export default function RegisterScreen({ navigation }: { navigation: NavigationP
             <View className="mt-5">
               <Text className="mb-6 text-center text-sm leading-5 text-slate-500">
                 "Ro'yxatdan o'tish" tugmasini bosish orqali siz bizning{' '}
-                <Text
-                  onPress={() => navigation.navigate('Privacy' as any)}
-                  className="text-[#21C45D]">
+                <Text onPress={() => navigation.navigate('Terms')} className="text-[#21C45D]">
                   Foydalanish shartlari
                 </Text>{' '}
                 va{' '}
-                <Text
-                  onPress={() => navigation.navigate('Privacy' as any)}
-                  className="text-[#21C45D]">
+                <Text onPress={() => navigation.navigate('Privacy')} className="text-[#21C45D]">
                   Maxfiylik siyosatiga
                 </Text>{' '}
                 rozilik bildirasiz.

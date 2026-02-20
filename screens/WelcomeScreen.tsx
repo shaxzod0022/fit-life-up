@@ -14,8 +14,7 @@ export default function WelcomeScreen({ navigation }: { navigation: NavigationPr
     <SafeAreaView className="flex-1">
       <RadialBackground />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-        <View className="flex-1 justify-between gap-y-16 px-8 py-16">
-          {/* Yuqori qism: Sarlavha va Logo */}
+        <View className="flex-1 justify-between gap-y-16 p-6">
           <View className="items-center gap-y-6">
             <Icon width={84} height={84} />
             <Text className="text-center text-sm text-[#21C45D]">FITLIFEUP</Text>
@@ -27,7 +26,6 @@ export default function WelcomeScreen({ navigation }: { navigation: NavigationPr
             </Text>
           </View>
 
-          {/* Markaziy qism: Motivatsion matn */}
           <View className="relative flex flex-col items-center">
             <Image source={Img} className="w-full rounded-lg" />
             <View className="absolute bottom-0 flex w-full flex-row items-center gap-3 rounded-lg bg-[#122017CC] p-3">
@@ -41,7 +39,6 @@ export default function WelcomeScreen({ navigation }: { navigation: NavigationPr
             </View>
           </View>
 
-          {/* Pastki qism: Tugmalar */}
           <View className="gap-y-4">
             <TouchableOpacity
               onPress={() => navigation.navigate('Register')}

@@ -27,7 +27,7 @@ export default function PersonalInfoScreen({ navigation }: { navigation: Navigat
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1">
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-          <View className="flex-1 px-6 py-12">
+          <View className="flex-1 p-6">
             <View className="mb-8 flex-row items-center justify-between">
               <TouchableOpacity
                 onPress={() => navigation.goBack()}
