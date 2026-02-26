@@ -29,7 +29,7 @@ export default function EditProfileScreen({ navigation }: any) {
         <View className="flex-row items-center justify-between px-6 py-4">
           <BackBtn navigation={navigation} />
           <Text className="text-xl font-bold text-white">Profilni tahrirlash</Text>
-          <View className="w-7" /> {/* Bo'shliq balans uchun */}
+          <View className="w-7" />
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false} className="flex-1 px-6">
@@ -56,7 +56,7 @@ export default function EditProfileScreen({ navigation }: any) {
             {/* Name Input */}
             <View>
               <Text className="mb-2 ml-1 text-sm font-medium text-gray-400">Ism</Text>
-              <View className="h-16 justify-center rounded-2xl border border-white/5 bg-[#1e293b] px-5">
+              <View className="h-16 justify-center rounded-2xl border border-white/5 bg-[#121b18] px-5">
                 <TextInput
                   value={name}
                   onChangeText={setName}
@@ -68,7 +68,7 @@ export default function EditProfileScreen({ navigation }: any) {
             {/* Age Input */}
             <View>
               <Text className="mb-2 ml-1 text-sm font-medium text-gray-400">Yosh</Text>
-              <View className="h-16 justify-center rounded-2xl border border-white/5 bg-[#1e293b] px-5">
+              <View className="h-16 justify-center rounded-2xl border border-white/5 bg-[#121b18] px-5">
                 <TextInput
                   value={age}
                   onChangeText={setAge}
@@ -82,7 +82,7 @@ export default function EditProfileScreen({ navigation }: any) {
             <View className="flex-row justify-between">
               <View className="w-[47%]">
                 <Text className="mb-2 ml-1 text-sm font-medium text-gray-400">Bo'y (sm)</Text>
-                <View className="h-16 flex-row items-center justify-between rounded-2xl border border-white/5 bg-[#1e293b] px-5">
+                <View className="h-16 flex-row items-center justify-between rounded-2xl border border-white/5 bg-[#121b18] px-5">
                   <TextInput
                     value={height}
                     onChangeText={setHeight}
@@ -95,7 +95,7 @@ export default function EditProfileScreen({ navigation }: any) {
 
               <View className="w-[47%]">
                 <Text className="mb-2 ml-1 text-sm font-medium text-gray-400">Vazn (kg)</Text>
-                <View className="h-16 flex-row items-center justify-between rounded-2xl border border-white/5 bg-[#1e293b] px-5">
+                <View className="h-16 flex-row items-center justify-between rounded-2xl border border-white/5 bg-[#121b18] px-5">
                   <TextInput
                     value={weight}
                     onChangeText={setWeight}
@@ -109,7 +109,7 @@ export default function EditProfileScreen({ navigation }: any) {
           </View>
 
           {/* Additional Settings */}
-          <View className="my-10 overflow-hidden rounded-3xl bg-[#1e293b]">
+          <View className="my-10 overflow-hidden rounded-3xl bg-[#121b18]">
             <TouchableOpacity className="flex-row items-center border-b border-white/5 px-5 py-5">
               <Feather name="lock" size={20} color="#94a3b8" />
               <Text className="ml-4 flex-1 font-medium text-white">Maxfiylik sozlamalari</Text>

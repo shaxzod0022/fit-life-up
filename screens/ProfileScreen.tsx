@@ -19,7 +19,10 @@ export default function ProfileScreen({ navigation }: { navigation: ProfileScree
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 }} showsVerticalScrollIndicator={false} className="flex-1 px-6">
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 80 }}
+        showsVerticalScrollIndicator={false}
+        className="flex-1 px-6">
         {/* Profile Info Section */}
         <View className="mb-5 items-center">
           <View className="relative">
@@ -71,17 +74,15 @@ export default function ProfileScreen({ navigation }: { navigation: ProfileScree
               label="Profilni tahrirlash"
             />
             <SettingItem
-              icon={<MaterialCommunityIcons name="refresh" size={20} color="#18da61" />}
-              label="Ma'lumotlarni yangilash"
-            />
-            <SettingItem
               icon={<Feather name="lock" size={20} color="#18da61" />}
               label="Maxfiylik siyosati"
+              onPress={() => navigation.navigate('Privacy')}
             />
             <SettingItem
               icon={<Feather name="file-text" size={20} color="#18da61" />}
               label="Foydalanish shartlari"
               isLast
+              onPress={() => navigation.navigate('Terms')}
             />
           </View>
         </View>
