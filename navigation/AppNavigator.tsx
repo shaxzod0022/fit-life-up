@@ -1,4 +1,5 @@
 import React from 'react';
+import { RootStackParamList } from 'types/navigation.interface';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoadingScreen from 'screens/LoadingScreen';
 import WelcomeScreen from 'screens/WelcomeScreen';
@@ -17,7 +18,7 @@ import NotificationSettingsScreen from 'screens/NotificationSettingsScreen';
 import SleepAnalysisScreen from 'screens/SleepAnalysisScreen';
 import WorkoutsScreen from 'screens/WorkoutScreen';
 import WorkoutPlayerScreen from 'screens/WorkoutPlayerScreen';
-import { RootStackParamList } from 'types/navigation.interface';
+import WorkoutSummaryScreen from 'screens/WorkoutSummaryScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -50,6 +51,7 @@ export default function AppNavigator() {
       <Stack.Screen name="SleepAnalysis" component={SleepAnalysisScreen} />
       <Stack.Screen name="Workouts" component={WorkoutsScreen} />
       <Stack.Screen name="WorkoutPlayer" component={WorkoutPlayerScreen} />
+      <Stack.Screen name="WorkoutSummary" component={WorkoutSummaryScreen} />
     </Stack.Navigator>
   );
 }

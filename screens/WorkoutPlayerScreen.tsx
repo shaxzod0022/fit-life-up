@@ -141,6 +141,7 @@ export default function WorkoutPlayerScreen({
             text="Yakunlash"
             className="border border-slate-700 bg-transparent shadow-none"
             textClassName="text-white uppercase tracking-widest"
+            onPress={() => navigation.navigate('WorkoutSummary')}
           />
 
           {/* Next Up Preview */}

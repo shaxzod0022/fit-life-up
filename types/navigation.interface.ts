@@ -29,6 +29,7 @@ export type RootStackParamList = {
   Notifications: undefined;
   NotificationSettings: undefined;
   WorkoutPlayer: { exerciseId: string };
+  WorkoutSummary: undefined;
 };
 
 export type AppTabScreenProps<T extends keyof TabParamList> = CompositeScreenProps<
