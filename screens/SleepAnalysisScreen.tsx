@@ -2,8 +2,14 @@ import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BackBtn from 'components/helpers/BackBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function SleepAnalysisScreen({ navigation }: any) {
+export default function SleepAnalysisScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<RootStackParamList, 'SleepAnalysis'>;
+}) {
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
       {/* Header */}

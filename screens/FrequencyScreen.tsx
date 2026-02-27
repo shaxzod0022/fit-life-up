@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { Feather, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
 import AiIcon from '../assets/icons/ai-icon.svg';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { RootStackParamList } from 'types/navigation.interface';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Frequency'>;
 
@@ -14,7 +14,7 @@ interface FrequencyOption {
   title: string;
   subtitle: string;
   range: string;
-  icon: any;
+  icon: keyof typeof MaterialCommunityIcons.glyphMap | keyof typeof FontAwesome5.glyphMap;
   iconType: 'material' | 'font-awesome';
 }
 
@@ -90,13 +90,13 @@ export default function FrequencyScreen({ navigation }: { navigation: Navigation
                     className={`h-12 w-12 items-center justify-center rounded-xl ${selected === item.id ? 'bg-[#21C45D]' : 'bg-white/10'}`}>
                     {item.iconType === 'material' ? (
                       <MaterialCommunityIcons
-                        name={item.icon as any}
+                        name={item.icon as keyof typeof MaterialCommunityIcons.glyphMap}
                         size={24}
                         color={selected === item.id ? '#0a1210' : '#94A3B8'}
                       />
                     ) : (
                       <FontAwesome5
-                        name={item.icon}
+                        name={item.icon as keyof typeof FontAwesome5.glyphMap}
                         size={20}
                         color={selected === item.id ? '#0a1210' : '#94A3B8'}
                       />
@@ -138,7 +138,7 @@ export default function FrequencyScreen({ navigation }: { navigation: Navigation
             <GreenBtn
               text="Rejani hisoblash"
               icon={<Feather name="arrow-right" size={20} color="#0a1210" />}
-              onPress={() => navigation.replace('Main')}
+                onPress={() => navigation.navigate('Main', { screen: 'Asosiy' })}
             />
           </View>
         </View>

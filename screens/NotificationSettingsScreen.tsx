@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, Switch, SafeAreaView, ScrollView } from 'react-native';
 import { Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import BackBtn from 'components/helpers/BackBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function NotificationSettingsScreen({ navigation }: any) {
+type NavigationProp = StackNavigationProp<RootStackParamList, 'NotificationSettings'>;
+
+export default function NotificationSettingsScreen({ navigation }: { navigation: NavigationProp }) {
   const [reminders, setReminders] = useState(true);
   const [nutrition, setNutrition] = useState(true);
   const [streaks, setStreaks] = useState(true);
@@ -52,7 +56,7 @@ export default function NotificationSettingsScreen({ navigation }: any) {
         </Text>
         <View className="mb-6 overflow-hidden rounded-3xl bg-[#1e293b]">
           <ToggleItem
-            icon={<Feather name="lightbulb" size={20} color="#18da61" />}
+            icon={<Feather name="info" size={20} color="#18da61" />}
             label="Yangiliklar va maslahatlar"
             value={news}
             onValueChange={setNews}
@@ -70,7 +74,15 @@ export default function NotificationSettingsScreen({ navigation }: any) {
   );
 }
 
-const ToggleItem = ({ icon, label, value, onValueChange, isLast }: any) => (
+interface ToggleItemProps {
+  icon: React.ReactNode;
+  label: string;
+  value: boolean;
+  onValueChange: (value: boolean) => void;
+  isLast?: boolean;
+}
+
+const ToggleItem = ({ icon, label, value, onValueChange, isLast }: ToggleItemProps) => (
   <View className={`flex-row items-center p-5 ${!isLast ? 'border-b border-white/5' : ''}`}>
     <View className="h-10 w-10 items-center justify-center rounded-xl bg-[#18da61]/10">{icon}</View>
     <Text className="ml-4 flex-1 text-base font-medium text-white">{label}</Text>

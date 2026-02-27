@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { RootStackParamList } from 'types/navigation.interface';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Goal'>;
 
@@ -12,7 +12,7 @@ interface GoalOption {
   id: string;
   title: string;
   description?: string;
-  icon: any;
+  icon: keyof typeof MaterialCommunityIcons.glyphMap | keyof typeof Feather.glyphMap;
   type: 'material' | 'feather';
 }
 
@@ -75,13 +75,13 @@ export default function GoalScreen({ navigation }: { navigation: NavigationProp 
                     className={`h-12 w-12 items-center justify-center rounded-xl ${selectedGoal === goal.id ? 'bg-[#21C45D]' : 'bg-white/10'}`}>
                     {goal.type === 'material' ? (
                       <MaterialCommunityIcons
-                        name={goal.icon}
+                        name={goal.icon as keyof typeof MaterialCommunityIcons.glyphMap}
                         size={24}
                         color={selectedGoal === goal.id ? '#0a1210' : '#21C45D'}
                       />
                     ) : (
                       <Feather
-                        name={goal.icon}
+                        name={goal.icon as keyof typeof Feather.glyphMap}
                         size={24}
                         color={selectedGoal === goal.id ? '#0a1210' : '#21C45D'}
                       />

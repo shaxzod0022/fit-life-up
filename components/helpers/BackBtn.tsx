@@ -1,7 +1,12 @@
 import { TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import { NavigationProp } from '@react-navigation/native';
 
-export default function BackBtn({ navigation }: any) {
+interface BackBtnProps {
+  navigation: NavigationProp<any>;
+}
+
+export default function BackBtn({ navigation }: BackBtnProps) {
   return (
     <TouchableOpacity
       onPress={() => navigation.goBack()}

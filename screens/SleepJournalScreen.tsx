@@ -3,14 +3,16 @@ import { View, Text, TouchableOpacity, SafeAreaView, ScrollView, Switch } from '
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppTabScreenProps, RootStackParamList } from 'types/navigation.interface';
 
-export default function SleepJournalScreen({ navigation }: any) {
+export default function SleepJournalScreen({ navigation }: AppTabScreenProps<'Uyqu'>) {
   const [sleepTime, setSleepTime] = useState('22:00');
   const [wakeHour, setWakeHour] = useState(7);
   const [wakeMinute, setWakeMinute] = useState(30);
   const [quality, setQuality] = useState("O'rtacha");
   const [wokeUpAtNight, setWokeUpAtNight] = useState(true);
-
+  
   const sleepOptions = ['21:00', '22:00', '23:00', '00:00', '01:00'];
   const qualities = [
     { label: 'Yomon', emoji: '☹️' },
@@ -22,7 +24,7 @@ export default function SleepJournalScreen({ navigation }: any) {
     <SafeAreaView className="flex-1 bg-[#0a1210]">
       {/* Header */}
       <View className="flex-row items-center px-6 py-4">
-        <BackBtn />
+        <BackBtn navigation={navigation as any} />
         <Text className="mr-10 flex-1 text-center text-lg font-bold text-white">Uyqu jurnali</Text>
       </View>
 
@@ -138,7 +140,7 @@ export default function SleepJournalScreen({ navigation }: any) {
         <GreenBtn
           text="Hisoblash"
           className="mt-6 bg-white"
-          onPress={() => navigation.navigate('SleepAnalysis')}
+          onPress={() => navigation.navigate('SleepAnalysis', { sessionId: 'temp' })}
         />
       </ScrollView>
     </SafeAreaView>

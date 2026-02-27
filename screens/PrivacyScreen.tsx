@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from 'types/navigation.interface';
 import BackBtn from 'components/helpers/BackBtn';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'Privacy'>;
@@ -15,7 +15,7 @@ export default function PrivacyPolicyScreen({ navigation }: { navigation: Naviga
     children,
   }: {
     title: string;
-    icon: any;
+    icon: keyof typeof MaterialCommunityIcons.glyphMap;
     children: React.ReactNode;
   }) => (
     <View className="mb-8 rounded-[24px] border border-white/10 bg-white/5 p-5">

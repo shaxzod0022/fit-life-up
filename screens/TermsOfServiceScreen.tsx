@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView, SafeAreaView } from 'react-native';
 import { Feather, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
+import { RootStackParamList } from 'types/navigation.interface';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
 
@@ -15,7 +15,7 @@ export default function TermsOfServiceScreen({ navigation }: { navigation: Navig
     children,
   }: {
     title: string;
-    icon: any;
+    icon: keyof typeof MaterialCommunityIcons.glyphMap;
     children: React.ReactNode;
   }) => (
     <View className="mb-6 rounded-[24px] border border-white/10 bg-white/5 p-5">
@@ -56,7 +56,7 @@ export default function TermsOfServiceScreen({ navigation }: { navigation: Navig
         </TermSection>
 
         {/* 2. Hisob va xavfsizlik */}
-        <TermSection title="Hisob va xavfsizlik" icon="account-shield-outline">
+        <TermSection title="Hisob va xavfsizlik" icon="shield-account-outline">
           <Text className="text-sm leading-6 text-slate-300">
             Foydalanuvchi o‘z telefon raqami orqali ro‘yxatdan o‘tadi va hisob xavfsizligi, parollar
             hamda barcha faolliklar uchun shaxsan javobgardir.

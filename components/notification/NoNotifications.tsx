@@ -1,8 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function NoNotifications({ navigation }: any) {
+interface NoNotificationsProps {
+  navigation: StackNavigationProp<RootStackParamList, any>;
+}
+
+export default function NoNotifications({ navigation }: NoNotificationsProps) {
   return (
     <View className="flex-1 bg-[#0a1210]">
       <View className="flex-1 items-center justify-center px-6">
@@ -39,7 +45,7 @@ export default function NoNotifications({ navigation }: any) {
       <View className="px-6 pb-10">
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => navigation?.replace('Main')}
+          onPress={() => navigation?.navigate('Main', { screen: 'Asosiy' })}
           className="h-16 flex-row items-center justify-center rounded-3xl bg-[#18da61] shadow-lg shadow-green-500/30">
           <Feather name="home" size={20} color="#0a1210" />
           <Text className="ml-2 text-lg font-bold text-[#0a1210]">Bosh sahifaga qaytish</Text>

@@ -7,14 +7,21 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
-  StyleSheet,
 } from 'react-native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function LoginScreen({ navigation }: any) {
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
+
+export default function LoginScreen({ navigation }: { navigation: NavigationProp }) {
   const [phone, setPhone] = useState('');
+
+  const handleLogin = () => {
+    navigation.navigate('OTP', { phoneNumber: phone, login: true });
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
@@ -62,10 +69,8 @@ export default function LoginScreen({ navigation }: any) {
             <GreenBtn
               className="mb-5"
               text="Kirish"
-              onPress={() => navigation.navigate('OTP')}
-              icon={
-                <Feather name="arrow-right" size={22} color="#0a1210" style={{ marginLeft: 8 }} />
-              }
+              onPress={handleLogin}
+              icon={<Feather name="arrow-right" size={22} color="#0a1210" />}
             />
             <View className="flex-row justify-center">
               <Text className="text-base text-gray-400">Ro‘yxatdan o‘tmaganmisiz? </Text>

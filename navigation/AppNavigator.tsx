@@ -15,34 +15,23 @@ import EditProfileScreen from 'screens/EditProfileScreen';
 import NotificationsScreen from 'screens/NotificationsScreen';
 import NotificationSettingsScreen from 'screens/NotificationSettingsScreen';
 import SleepAnalysisScreen from 'screens/SleepAnalysisScreen';
+import WorkoutsScreen from 'screens/WorkoutScreen';
+import WorkoutPlayerScreen from 'screens/WorkoutPlayerScreen';
+import { RootStackParamList } from 'types/navigation.interface';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
-export type RootStackParamList = {
-  Loading: undefined;
-  Welcome: undefined;
-  Register: undefined;
-  Login: undefined;
-  OTP: undefined;
-  PersonalInfo: undefined;
-  Goal: undefined;
-  Frequency: undefined;
-  Privacy: undefined;
-  Terms: undefined;
-  Main: undefined;
-  EditProfile: undefined;
-  Notifications: undefined;
-  NotificationSettings: undefined;
-  SleepAnalysis: undefined;
-};
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
 
 export default function AppNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {/* Auth Screens */}
       <Stack.Screen name="Loading" component={LoadingScreen} />
-      <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} />
-      <Stack.Screen name="Terms" component={TermsOfServiceScreen} />
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
@@ -50,6 +39,8 @@ export default function AppNavigator() {
       <Stack.Screen name="PersonalInfo" component={PersonalInfoScreen} />
       <Stack.Screen name="Goal" component={GoalScreen} />
       <Stack.Screen name="Frequency" component={FrequencyScreen} />
+      <Stack.Screen name="Privacy" component={PrivacyPolicyScreen} />
+      <Stack.Screen name="Terms" component={TermsOfServiceScreen} />
       {/* Tab Bar */}
       <Stack.Screen name="Main" component={TabNavigator} />
       {/* Tab Bar-siz ochiladigan ichki sahifalar */}
@@ -57,6 +48,8 @@ export default function AppNavigator() {
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
       <Stack.Screen name="NotificationSettings" component={NotificationSettingsScreen} />
       <Stack.Screen name="SleepAnalysis" component={SleepAnalysisScreen} />
+      <Stack.Screen name="Workouts" component={WorkoutsScreen} />
+      <Stack.Screen name="WorkoutPlayer" component={WorkoutPlayerScreen} />
     </Stack.Navigator>
   );
 }

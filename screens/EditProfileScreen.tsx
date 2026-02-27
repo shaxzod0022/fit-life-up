@@ -13,8 +13,14 @@ import {
 import { Feather, Ionicons } from '@expo/vector-icons';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function EditProfileScreen({ navigation }: any) {
+export default function EditProfileScreen({
+  navigation,
+}: {
+  navigation: StackNavigationProp<RootStackParamList, 'EditProfile'>;
+}) {
   const [name, setName] = useState('Avazbek');
   const [age, setAge] = useState('25');
   const [height, setHeight] = useState('175');

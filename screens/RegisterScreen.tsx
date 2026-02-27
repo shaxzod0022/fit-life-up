@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
   SafeAreaView,
   ScrollView,
   KeyboardAvoidingView,
@@ -11,7 +10,7 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
+import { RootStackParamList } from 'types/navigation.interface';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
 
@@ -20,6 +19,10 @@ type NavigationProp = StackNavigationProp<RootStackParamList, 'Register'>;
 export default function RegisterScreen({ navigation }: { navigation: NavigationProp }) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
+  const handleRegister = () => {
+    navigation.navigate('OTP', { phoneNumber: phone, login: false });
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
@@ -110,7 +113,7 @@ export default function RegisterScreen({ navigation }: { navigation: NavigationP
 
               <GreenBtn
                 text="Ro'yxatdan o'tish"
-                onPress={() => navigation.navigate('OTP')}
+                onPress={handleRegister}
                 icon={<Feather name="arrow-right" size={20} color="#0a1210" />}
               />
             </View>

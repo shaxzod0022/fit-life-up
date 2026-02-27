@@ -3,18 +3,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import HomeScreen from 'screens/HomeScreen';
 import ExercisesScreen from 'screens/ExercisesScreen';
-import { View, Text } from 'react-native';
 import ProfileScreen from 'screens/ProfileScreen';
 import NutritionScreen from 'screens/NutritionScreen';
 import SleepJournalScreen from 'screens/SleepJournalScreen';
+import { TabParamList } from 'types/navigation.interface';
+import { View } from 'react-native';
 
-const Tab = createBottomTabNavigator();
-
-const Placeholder = ({ title }: { title: string }) => (
-  <View className="flex-1 items-center justify-center bg-[#0a1210]">
-    <Text className="text-white">{title}</Text>
-  </View>
-);
+const Tab = createBottomTabNavigator<TabParamList>();
 
 export default function TabNavigator() {
   return (

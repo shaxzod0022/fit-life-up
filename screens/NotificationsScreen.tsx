@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
-import { Feather, Ionicons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import NoNotifications from 'components/notification/NoNotifications';
 import BackBtn from 'components/helpers/BackBtn';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from 'types/navigation.interface';
 
-export default function NotificationsScreen({ navigation }: any) {
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
+
+export default function NotificationsScreen({ navigation }: { navigation: NavigationProp }) {
   const [notifications, setNotifications] = useState([
     {
       id: 1,
-      icon: <Feather name="dumbbell" size={16} color="#18da61" />,
+      icon: <MaterialCommunityIcons name="dumbbell" size={16} color="#18da61" />,
       title: "Mashg'ulot vaqti",
       desc: "Bugungi kungi mashg'ulotni boshlashni unutmang.",
       time: '2 soat oldin',
@@ -16,7 +20,7 @@ export default function NotificationsScreen({ navigation }: any) {
     },
     {
       id: 2,
-      icon: <Feather name="leaf" size={20} color="#18da61" />,
+      icon: <MaterialCommunityIcons name="leaf" size={20} color="#18da61" />,
       title: 'Ovqatlanish',
       desc: 'Suv ichish va vitaminlarni qabul qilish vaqti keldi.',
       time: '3 soat oldin',
@@ -24,7 +28,7 @@ export default function NotificationsScreen({ navigation }: any) {
     },
     {
       id: 3,
-      icon: <Feather name="fire" size={18} color="#f97316" />,
+      icon: <MaterialCommunityIcons name="fire" size={18} color="#f97316" />,
       title: 'Yutuqlar',
       desc: 'Tabriklaymiz! Siz 7 kunlik seriyani saqlab qoldingiz.',
       time: '5 soat oldin',
@@ -67,7 +71,7 @@ export default function NotificationsScreen({ navigation }: any) {
           </Text>
 
           <NotificationItem
-            icon={<Feather name="dumbbell" size={16} color="#18da61" />}
+            icon={<MaterialCommunityIcons name="dumbbell" size={16} color="#18da61" />}
             title="Mashg'ulot vaqti"
             desc="Bugungi kungi mashg'ulotni boshlashni unutmang."
             time="2 soat oldin"
@@ -75,7 +79,7 @@ export default function NotificationsScreen({ navigation }: any) {
           />
 
           <NotificationItem
-            icon={<Feather name="leaf" size={20} color="#18da61" />}
+            icon={<MaterialCommunityIcons name="leaf" size={20} color="#18da61" />}
             title="Ovqatlanish"
             desc="Suv ichish va vitaminlarni qabul qilish vaqti keldi."
             time="3 soat oldin"
@@ -88,7 +92,7 @@ export default function NotificationsScreen({ navigation }: any) {
           </Text>
 
           <NotificationItem
-            icon={<Feather name="fire" size={18} color="#f97316" />}
+            icon={<MaterialCommunityIcons name="fire" size={18} color="#f97316" />}
             title="Yutuqlar"
             desc="Tabriklaymiz! Siz 7 kunlik seriyani saqlab qoldingiz."
             time="5 soat oldin"
@@ -116,6 +120,15 @@ export default function NotificationsScreen({ navigation }: any) {
   );
 }
 
+interface NotificationItemProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  time: string;
+  unread?: boolean;
+  bgColor?: string;
+}
+
 const NotificationItem = ({
   icon,
   title,
@@ -123,7 +136,7 @@ const NotificationItem = ({
   time,
   unread,
   bgColor = 'bg-[#18da61]/10',
-}: any) => (
+}: NotificationItemProps) => (
   <TouchableOpacity className="mb-3 flex-row items-start rounded-3xl border border-white/5 bg-[#1e293b] p-4">
     <View className={`h-12 w-12 items-center justify-center rounded-2xl ${bgColor}`}>{icon}</View>
     <View className="ml-4 flex-1">

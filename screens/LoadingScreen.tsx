@@ -1,12 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Animated, Dimensions, SafeAreaView } from 'react-native';
 import DumbellIcon from '../assets/icons/dumbell.svg';
+import { RootStackParamList } from 'types/navigation.interface';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+type NavigationProp = StackNavigationProp<RootStackParamList, 'Loading'>;
 
 const { width } = Dimensions.get('window');
 const PROGRESS_BAR_WIDTH = width * 0.9;
 
 // navigation propini qabul qilamiz
-export default function LoadingScreen({ navigation }: any) {
+export default function LoadingScreen({ navigation }: { navigation: NavigationProp }) {
   const [percent, setPercent] = useState(0);
   const progressAnim = useRef(new Animated.Value(0)).current;
 

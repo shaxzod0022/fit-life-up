@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { AppTabScreenProps } from 'types/navigation.interface';
 
-export default function HomeScreen({ navigation }: any) {
+export default function HomeScreen({ navigation }: AppTabScreenProps<'Asosiy'>) {
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
       <ScrollView
@@ -46,7 +47,7 @@ export default function HomeScreen({ navigation }: any) {
             <Text className="ml-2 font-bold text-[#0a1210]">Boshlash</Text>
           </TouchableOpacity>
           <View className="absolute bottom-0 right-[-20] opacity-40">
-            <MaterialCommunityIcons name="human-walking" size={200} color="#22C55E" />
+            <MaterialCommunityIcons name="human-walker" size={200} color="#22C55E" />
           </View>
         </View>
 

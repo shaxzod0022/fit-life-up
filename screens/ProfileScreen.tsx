@@ -1,13 +1,10 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
-import { Feather, MaterialCommunityIcons, Ionicons, EvilIcons } from '@expo/vector-icons';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
+import { Feather, Ionicons } from '@expo/vector-icons';
+import { AppTabScreenProps } from 'types/navigation.interface';
 import BackBtn from 'components/helpers/BackBtn';
 
-type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Main'>;
-
-export default function ProfileScreen({ navigation }: { navigation: ProfileScreenNavigationProp }) {
+export default function ProfileScreen({ navigation }: AppTabScreenProps<'Profil'>) {
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
       {/* Header Navigation */}
@@ -104,7 +101,7 @@ const SettingItem = ({
   isLast,
   onPress,
 }: {
-  icon: any;
+  icon: React.ReactNode;
   label: string;
   isLast?: boolean;
   onPress?: () => void;

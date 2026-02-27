@@ -7,20 +7,30 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
-  Keyboard,
+  NativeSyntheticEvent,
+  TextInputKeyPressEventData,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from 'navigation/AppNavigator';
+import { RootStackParamList } from 'types/navigation.interface';
 import BackBtn from 'components/helpers/BackBtn';
 import GreenBtn from 'components/helpers/GreenBtn';
+import { StackScreenProps } from '@react-navigation/stack';
 
-type NavigationProp = StackNavigationProp<RootStackParamList, 'OTP'>;
+type Props = StackScreenProps<RootStackParamList, 'OTP'>;
 
-export default function OTPScreen({ navigation }: { navigation: NavigationProp }) {
+export default function OTPScreen({ route, navigation }: Props) {
   const [code, setCode] = useState(['', '', '', '', '', '']);
   const [timer, setTimer] = useState(48);
+  const phoneNumber = route.params.phoneNumber;
   const inputs = useRef<Array<TextInput | null>>([]);
+
+  const handleOTP = () => {
+    if (route.params?.login) {
+      navigation.navigate('Main', { screen: 'Asosiy' });
+    } else {
+      navigation.navigate('PersonalInfo');
+    }
+  };
 
   // Taymer mantiqi
   useEffect(() => {
@@ -41,7 +51,7 @@ export default function OTPScreen({ navigation }: { navigation: NavigationProp }
     }
   };
 
-  const handleKeyPress = (e: any, index: number) => {
+  const handleKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>, index: number) => {
     // Backspace bosilganda oldingi inputga qaytish
     if (e.nativeEvent.key === 'Backspace' && index > 0 && code[index] === '') {
       inputs.current[index - 1]?.focus();
@@ -122,7 +132,7 @@ export default function OTPScreen({ navigation }: { navigation: NavigationProp }
 
           {/* Action Button */}
           <View className="mt-auto">
-            <GreenBtn text="Davom etish" onPress={() => navigation.replace('PersonalInfo')} />
+            <GreenBtn text="Davom etish" onPress={handleOTP} />
           </View>
         </View>
       </KeyboardAvoidingView>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Image, ScrollView } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/AppNavigator';
+import { RootStackParamList } from 'types/navigation.interface';
 import Icon from '../assets/icons/welcome-icon.svg';
 import PowerIcon from '../assets/icons/power-icon.svg';
 import Img from '../assets/images/welcome-image.png';
@@ -42,12 +42,12 @@ export default function WelcomeScreen({ navigation }: { navigation: NavigationPr
 
           <View className="gap-y-4">
             <GreenBtn text="Ro'yxatdan o'tish" onPress={() => navigation.navigate('Register')} />
-
-            <TouchableOpacity
+            <GreenBtn
+              text="Kirish"
               onPress={() => navigation.navigate('Login')}
-              className="items-center rounded-2xl border border-slate-700 py-4">
-              <Text className="text-lg font-medium text-white">Kirish</Text>
-            </TouchableOpacity>
+              className="border border-slate-700 bg-transparent shadow-none"
+              textClassName="text-white"
+            />
 
             <Text className="mt-4 text-center text-xs leading-5 text-slate-500">
               Davom etish orqali siz bizning{' '}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AppTabScreenProps } from 'types/navigation.interface';
 
 interface ExerciseCategory {
   id: string;
@@ -41,8 +42,12 @@ const workouts: Workout[] = [
   },
 ];
 
-export default function ExercisesScreen() {
+export default function ExercisesScreen({ navigation }: AppTabScreenProps<'Mashqlar'>) {
   const [activeTab, setActiveTab] = useState('rehab');
+
+  const handleWorkoutPress = (workoutId: string) => {
+    navigation.navigate('Workouts', { exerciseId: workoutId });
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-[#0a1210]">
@@ -86,11 +91,12 @@ export default function ExercisesScreen() {
           {workouts.map((workout) => (
             <TouchableOpacity
               key={workout.id}
+              onPress={() => handleWorkoutPress(workout.id)}
               className="flex-row items-center rounded-[32px] border border-white/10 bg-white/5 p-4">
               <View className="h-20 w-20 overflow-hidden rounded-2xl bg-slate-800">
                 {/* Mashq rasmi uchun placeholder */}
                 <View className="flex-1 items-center justify-center">
-                  <MaterialCommunityIcons name="human-stretching" size={40} color="#22C55E" />
+                  <MaterialCommunityIcons name="human-greeting" size={40} color="#22C55E" />
                 </View>
               </View>
               <View className="ml-4 flex-1">

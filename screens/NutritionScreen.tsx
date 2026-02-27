@@ -8,7 +8,15 @@ import DeleteFoodModal from 'components/food/DelFoodModal';
 
 // --- Sub-components ---
 
-const MacroItem = ({ label, current, total, color, percent }: any) => (
+interface MacroItemProps {
+  label: string;
+  current: string;
+  total: string;
+  color: string;
+  percent: number;
+}
+
+const MacroItem = ({ label, current, total, color, percent }: MacroItemProps) => (
   <View className="flex-1 items-center">
     <Text className="mb-2 text-[10px] font-bold tracking-widest text-gray-500">{label}</Text>
     <View className="h-1.5 w-16 overflow-hidden rounded-full bg-white/10">
@@ -21,7 +29,13 @@ const MacroItem = ({ label, current, total, color, percent }: any) => (
   </View>
 );
 
-const SectionHeader = ({ icon, title, kcal }: any) => (
+interface SectionHeaderProps {
+  icon: React.ReactNode;
+  title: string;
+  kcal: string;
+}
+
+const SectionHeader = ({ icon, title, kcal }: SectionHeaderProps) => (
   <View className="mb-3 mt-8 flex-row items-center justify-between px-1">
     <View className="flex-row items-center">
       {icon}
@@ -31,10 +45,22 @@ const SectionHeader = ({ icon, title, kcal }: any) => (
   </View>
 );
 
-const FoodItem = ({ name, sub, kcal, onEdit, onDelete }: any) => {
-  const swipeableRef = useRef<any>(null);
+interface FoodItemProps {
+  name: string;
+  sub: string;
+  kcal: string;
+  onEdit: () => void;
+  onDelete: () => void;
+  onAdd?: () => void;
+}
 
-  const renderRightActions = (progress: any, dragX: any) => {
+const FoodItem = ({ name, sub, kcal, onEdit, onDelete }: FoodItemProps) => {
+  const swipeableRef = useRef<Swipeable>(null);
+
+  const renderRightActions = (
+    progress: Animated.AnimatedInterpolation<number>,
+    dragX: Animated.AnimatedInterpolation<number>
+  ) => {
     const trans = dragX.interpolate({
       inputRange: [-120, 0],
       outputRange: [0, 120],
