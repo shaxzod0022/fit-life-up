@@ -3,36 +3,38 @@
     "name": "FitLifeUp",
     "slug": "fit-life-app",
     "version": "1.0.0",
-
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/icon.jpg",
       "bundler": "metro"
     },
-
     "experiments": {
       "tsconfigPaths": true
     },
-
     "plugins": [],
-
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-
+    "icon": "./assets/icon.jpg",
     "userInterfaceStyle": "light",
-
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.jpg",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0a1210"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icon.jpg",
+        "backgroundColor": "#0a1210"
+      },
+      "package": "com.shaxdev.fitlifeapp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2237e069-968e-4d0e-83df-e8393cfe0dc6"
       }
     }
   }
